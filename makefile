@@ -1,4 +1,4 @@
 all:
 	gcc useargs.c
 run:
-	./a.out
+	./a.out ls -a -l
