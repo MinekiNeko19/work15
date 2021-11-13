@@ -6,15 +6,23 @@
 
 char ** parse_args( char * line ) {
     char ** args = malloc(sizeof(line));
-    char * store = strsep(&line," ");
-    char * step = malloc(sizeof(store));
+    // char * store = strsep(&line," ");
+    // char * step = malloc(sizeof(store));
+    // strcpy(step,store);
+    // int i = 0;
+    // while (store) {
+    //     args[i] = step;
+    //     store = strsep(&line," ");
+    //     step = malloc(sizeof(store));
+    //     strcpy(step,store);
+    //     i++;
+    // }
+    
     int i = 0;
-    strcpy(step,store);
+    char * store = strsep(&line," ");
     while (store) {
-        args[i] = step;
-        store = strsep(&line," ");
-        step = malloc(sizeof(store));
-        i++;
+        printf("%s\n", store);
+        store = strsep(&line, " ");
     }
     return args;
 }
@@ -24,9 +32,9 @@ int main() {
     char ** args = parse_args( line );
     // execvp(args[0], args);
 
-    int i = 0;
-    while (args[i]) {
-        printf("%s\n",args[i]);
-        i++;
-    }
+    // int i = 0;
+    // while (args[i]) {
+    //     printf("%s\n",args[i]);
+    //     i++;
+    // }
 }
