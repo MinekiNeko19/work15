@@ -5,19 +5,7 @@
 #include <string.h>
 
 char ** parse_args( char * line ) {
-    char ** args = malloc(sizeof(line));
-    // char * store = strsep(&line," ");
-    // char * step = malloc(sizeof(store));
-    // strcpy(step,store);
-    // int i = 0;
-    // while (store) {
-    //     args[i] = step;
-    //     store = strsep(&line," ");
-    //     step = malloc(sizeof(store));
-    //     strcpy(step,store);
-    //     i++;
-    // }
-    
+    char ** args = malloc(sizeof(line));    
     int i = 0;
     char * store = strsep(&line," ");
     char * step;
@@ -25,21 +13,21 @@ char ** parse_args( char * line ) {
         step = malloc(sizeof(store));
         strcpy(step,store);
         args[i] = step;
-        printf("%s\n", args[i]);
+        // printf("%s\n", args[i]);
         store = strsep(&line, " ");
         i++;
     }
+    args[i] = NULL;
     return args;
 }
 
-int main() {
-    char line[100] = "this is a test eyup";
+int main(int argc, char * argv) {
+    // char line[100] = "this is a test eyup";
+    char line[100] = "ls -a -l";
     char ** args = parse_args( line );
-    // execvp(args[0], args);
+    execvp(args[0], args);
 
-    // int i = 0;
-    // while (args[i]) {
-    //     printf("%s\n",args[i]);
-    //     i++;
-    // }
+    // args = parse_args(argv);
+    // execvp(args[1], args);
+
 }
