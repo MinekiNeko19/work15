@@ -21,13 +21,11 @@ char ** parse_args( char * line ) {
     return args;
 }
 
-int main(int argc, char * argv) {
+int main(int argc, char *argv[]) {
     // char line[100] = "this is a test eyup";
+
     char line[100] = "ls -a -l";
     char ** args = parse_args( line );
     execvp(args[0], args);
-
-    // args = parse_args(argv);
-    // execvp(args[1], args);
 
 }
