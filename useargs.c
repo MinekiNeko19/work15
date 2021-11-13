@@ -20,11 +20,14 @@ char ** parse_args( char * line ) {
     
     int i = 0;
     char * store = strsep(&line," ");
-    char * step = malloc(sizeof(store));
+    char * step;
     while (store) {
+        step = malloc(sizeof(store));
         strcpy(step,store);
-        printf("%s\n", step);
+        args[i] = step;
+        printf("%s\n", args[i]);
         store = strsep(&line, " ");
+        i++;
     }
     return args;
 }
